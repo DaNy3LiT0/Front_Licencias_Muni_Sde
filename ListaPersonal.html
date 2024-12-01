@@ -116,107 +116,39 @@
           </nav>
         </div>
       </div>
-      <!-- </div> -->
+      </div>
     </aside>
-
 
     <!-- Contenido -->
     <div class="content col-md-9 col-lg-10 d-flex justify-content-center align-items-center">
-      <div class="col-10">
-        <section class="card p-3">
-          <h2 class="text-center">Formulario de Alta de Persona</h2>
-          <form>
-            <div class="row py-1">
-              <!-- Apellido -->
-              <div class="form-group col-md-6">
-                <label class="small" cfor="apellido">Apellido</label>
-                <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido"
-                  style="font-size: 12px;">
-              </div>
-              <!-- Nombres -->
-              <div class="form-group col-md-6">
-                <label class="small" for="nombres">Nombres</label>
-                <input type="text" class="form-control" id="nombres" placeholder="Ingrese nombres"
-                  style="font-size: 12px;">
-              </div>
-            </div>
-
-            <div class="row py-1">
-              <!-- DNI -->
-              <div class="form-group col-md-2">
-                <label class="small" for="dni">DNI</label>
-                <input type="text" class="form-control" id="dni" placeholder="Ingrese DNI" style="font-size: 12px;">
-              </div>
-              <!-- Fecha de Nacimiento -->
-              <div class="form-group col-md-2">
-                <label class="small" for="fecha_nac">Fecha de Nac.</label>
-                <input type="date" class="form-control" id="fecha_nac" style="font-size: 12px;">
-              </div>
-              <!-- Edad -->
-              <div class="form-group col-md-2">
-                <label class="small" for="edad">Edad</label>
-                <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" style="font-size: 12px;">
-              </div>
-              <!-- Género -->
-              <div class="form-group col-md-3">
-                <label class="small" for="genero">Género</label>
-                <select id="genero" class="form-control" style="font-size: 12px;">
-                  <option value="" disabled selected>Seleccione género</option>
-                  <option value="masculino">Masculino</option>
-                  <option value="femenino">Femenino</option>
-                  <option value="otro">Otro</option>
-                </select>
-              </div>
-              <!-- Teléfono -->
-              <div class="form-group col-md-3">
-                <label class="small" for="telefono">Teléfono</label>
-                <input type="text" class="form-control" id="telefono" placeholder="Ingrese teléfono"
-                  style="font-size: 12px;">
-              </div>
-            </div>
-
-            <div class="row py-1">
-              <!-- Domicilio -->
-              <div class="form-group col-md-6">
-                <label class="small" for="domicilio">Domicilio</label>
-                <input type="text" class="form-control" id="domicilio" placeholder="Ingrese domicilio"
-                  style="font-size: 12px;">
-              </div>
-              <!-- Email -->
-              <div class="form-group col-md-6">
-                <label class="small" for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Ingrese email"
-                  style="font-size: 12px;">
-              </div>
-            </div>
-
-            <div class="row py-1">
-              <!-- Repartición -->
-              <div class="form-group col-md-6">
-                <label class="small" for="reparticion">Repartición</label>
-                <select id="reparticion" class="form-control" style="font-size: 12px;">
-                  <!--<option value="" disabled selected>Seleccione una repartición</option>
-                      <option value="administracion">Administración</option>
-                      <option value="ventas">Ventas</option>
-                      <option value="recursos_humanos">Recursos Humanos</option>
-                      <option value="finanzas">Finanzas</option> -->
-                  <option value="" disabled selected>Cargando reparticiones...</option>
-                </select>
-              </div>
-              <!-- Antigüedad -->
-              <div class="form-group col-md-6">
-                <label class="small" for="antiguedad">Antigüedad (Años)</label>
-                <input type="number" class="form-control" id="antiguedad" placeholder="Ingrese años de antigüedad"
-                  style="font-size: 12px;">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 d-flex justify-content-end mt-3">
-                <button type="submit" class="btn btn-primary">Enviar</button>
-              </div>
-            </div>
-          </form>
-        </section>
+      <div class="container px-5 py-3 ">
+        <h4 class="mb-1">Listado de <strong>Personal</strong></h4>
+        <div class="d-flex justify-content-end mb-2">
+          <input type="text" class="form-control w-25" placeholder="Buscar...">
+        </div>
+        <table class="table table-bordered">
+          <thead>
+            <tr class="small">
+              <th>Id</th>
+              <th>Apellido</th>
+              <th>Nombres</th>
+              <th>DNI</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+             <!-- Los datos se llenarán aquí mediante JavaScript -->
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-between">
+          <div id="entries-info">Mostrando 0 de 0 entradas</div>
+          <nav>
+            <ul class="pagination">
+              <!-- Los elementos de paginación se llenarán aquí mediante JavaScript -->
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   </main>
@@ -229,7 +161,9 @@
     </nav>
   </footer>
 
+
   <script src="js/main.js"></script>
+  <script src="js/personal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
@@ -238,5 +172,6 @@
     crossorigin="anonymous"></script>
 
 </body>
+
 
 </html>

@@ -47,3 +47,33 @@ document.addEventListener("DOMContentLoaded", () => {
   initDropdown();
   mostrarUsuarioBienvenida();
 });
+
+// Mostrar Usuario en la Nav
+function mostrarUsuario() {
+  const username = localStorage.getItem("username");
+  if (username) {
+    document.getElementById("username").textContent = username;
+  } else {
+    // Redirigir al usuario a la página de login si no ha iniciado sesión
+    window.location.href = "login.html";
+  }
+}
+document.addEventListener("DOMContentLoaded", mostrarUsuario);
+
+// Flechas en Menu Lateral
+document.querySelectorAll('[data-bs-toggle="collapse"]').forEach((link) => {
+  const targetId = link.getAttribute("data-bs-target");
+  const target = document.querySelector(targetId);
+  const arrow = link.querySelector(".arrow");
+
+  if (target && arrow) {
+    // Registra los eventos una sola vez
+    target.addEventListener("show.bs.collapse", () => {
+      arrow.classList.add("rotate");
+    });
+
+    target.addEventListener("hide.bs.collapse", () => {
+      arrow.classList.remove("rotate");
+    });
+  }
+});
