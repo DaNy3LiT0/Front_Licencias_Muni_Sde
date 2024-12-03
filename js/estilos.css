@@ -1,0 +1,20 @@
+/* Rotación Flechas */
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.rotate {
+  transform: rotate(90deg);
+}
+
+/* Modificación por puntero */
+.nav-link {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-link:hover {
+  transform: scale(1.2); /* Aumenta ligeramente el tamaño */
+  opacity: 0.9; /* Reduce ligeramente la opacidad */
+  color: #002c6e; /* Cambia el texto a azul (opcional) */
+
+}

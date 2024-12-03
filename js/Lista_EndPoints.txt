@@ -1,0 +1,15 @@
+Mostrar todas las personas de la tabla: http://179.43.118.214/persona 
+Mostrar datos que cumplen condición: http://179.43.118.214/persona/estado 
+Agregar persona: http://179.43.118.214/persona/agregar  
+Modificar persona: http://179.43.118.214/persona/modificar/<int:id> 
+Eliminar persona:  http://179.43.118.214/persona/eliminar/1 
+Comprobar usuario registrado: http://179.43.118.214/api/login  
+Obtener tipo de usuario:  http://179.43.118.214/api/tipo_usuario?id_usuario=1 
+Obtener datos del usuario:  http://179.43.118.214/api/datos_usuario?id_usuario=1 
+Consultar persona por ID:  http://179.43.118.214/persona/consulta/1 
+Listar personas (limitadas a 30):  http://179.43.118.214/persona/listado 
+Agregar repartición:  http://179.43.118.214/reparticion/agregar  
+Consultar repartición por ID:  http://179.43.118.214/reparticion/consulta/1 
+Eliminar repartición: http://179.43.118.214/reparticion/eliminar/1 
+Modificar repartición: http://179.43.118.214/reparticion/update/1  
+Agregar licencia: http://179.43.118.214/licencia/agregar 
