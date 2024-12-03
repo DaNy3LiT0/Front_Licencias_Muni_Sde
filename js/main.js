@@ -1,64 +1,54 @@
+console.log("Archivo main.js cargado correctamente"); // Verificar carga del archivo
+
 let usuario = ""; // variable para almacenar el usuario actual
 
 // función para cerrar sesión
 function cerrarSesion() {
   usuario = ""; // resetear usuario
+  console.log("Sesión cerrada"); // Depuración
   window.location.href = "login.html"; // redirigir a la página de login
 }
 
 // función para inicializar el dropdown
 function initDropdown() {
+  console.log("Inicializando dropdown"); // Depuración
   const dropdownMenu = document.querySelector(".dropdown-menu");
-  dropdownMenu.addEventListener("click", (e) => {
-    if (e.target.classList.contains("dropdown-item")) {
-      if (e.target.textContent === "Cerrar sesión") {
-        cerrarSesion();
-      } else if (e.target.textContent === "Configuración") {
-        // agregar lógica para la configuración aquí
+  if (dropdownMenu) {
+    dropdownMenu.addEventListener("click", (e) => {
+      if (e.target.classList.contains("dropdown-item")) {
+        if (e.target.textContent === "Cerrar sesión") {
+          cerrarSesion();
+        } else if (e.target.textContent === "Configuración") {
+          console.log("Abriendo configuración"); // Agrega lógica para configuración
+        }
       }
-    }
-  });
-}
-
-// inicializar el dropdown cuando se carga la página
-document.addEventListener("DOMContentLoaded", () => {
-  initDropdown();
-  mostrarUsuario();
-
-  // Agregar evento de clic al elemento Cerrar Sesión
-  document
-    .getElementById("cerrar-sesion")
-    .addEventListener("click", cerrarSesion);
-});
-
-// Función para mostrar el nombre del usuario en el mensaje de bienvenida
-function mostrarUsuarioBienvenida() {
-  const username = localStorage.getItem("username");
-  if (username) {
-    document.getElementById("username-bienvenida").textContent = username;
+    });
   } else {
-    // Redirigir al usuario a la página de login si no ha iniciado sesión
-    window.location.href = "login.html";
+    console.error("Dropdown menu no encontrado");
   }
 }
 
-// Llamar a las funciones después de que el usuario inicie sesión
 document.addEventListener("DOMContentLoaded", () => {
   initDropdown();
-  mostrarUsuarioBienvenida();
+  mostrarUsuario();
 });
 
 // Mostrar Usuario en la Nav
 function mostrarUsuario() {
   const username = localStorage.getItem("username");
   if (username) {
-    document.getElementById("username").textContent = username;
+    console.log("Usuario encontrado:", username); // Depuración
+    const userElement = document.getElementById("username");
+    if (userElement) {
+      userElement.textContent = username;
+    } else {
+      console.error("Elemento username no encontrado");
+    }
   } else {
-    // Redirigir al usuario a la página de login si no ha iniciado sesión
+    console.warn("Usuario no encontrado en localStorage. Redirigiendo al login.");
     window.location.href = "login.html";
   }
 }
-document.addEventListener("DOMContentLoaded", mostrarUsuario);
 
 // Flechas en Menu Lateral
 document.querySelectorAll('[data-bs-toggle="collapse"]').forEach((link) => {
@@ -67,7 +57,6 @@ document.querySelectorAll('[data-bs-toggle="collapse"]').forEach((link) => {
   const arrow = link.querySelector(".arrow");
 
   if (target && arrow) {
-    // Registra los eventos una sola vez
     target.addEventListener("show.bs.collapse", () => {
       arrow.classList.add("rotate");
     });
@@ -75,5 +64,7 @@ document.querySelectorAll('[data-bs-toggle="collapse"]').forEach((link) => {
     target.addEventListener("hide.bs.collapse", () => {
       arrow.classList.remove("rotate");
     });
+  } else {
+    console.warn("No se encontró el target o la flecha para:", targetId);
   }
 });

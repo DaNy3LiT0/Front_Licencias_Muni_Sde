@@ -125,53 +125,55 @@
       <div class="col-10">
         <section class="card p-3">
           <h2 class="text-center">Formulario de Alta de Persona</h2>
-          <form>
+          <form id="formAltaPersona">
             <div class="row py-1">
               <!-- Apellido -->
               <div class="form-group col-md-6">
-                <label class="small" cfor="apellido">Apellido</label>
+                <label class="small" for="apellido">Apellido</label>
                 <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido"
-                  style="font-size: 12px;">
+                  style="font-size: 12px;" required>
               </div>
               <!-- Nombres -->
               <div class="form-group col-md-6">
                 <label class="small" for="nombres">Nombres</label>
                 <input type="text" class="form-control" id="nombres" placeholder="Ingrese nombres"
-                  style="font-size: 12px;">
+                  style="font-size: 12px;" required>
               </div>
             </div>
 
-            <div class="row py-1">
+            <div class="row py-1 d-flex flex-wrap justify-content-center">
               <!-- DNI -->
               <div class="form-group col-md-2">
                 <label class="small" for="dni">DNI</label>
-                <input type="text" class="form-control" id="dni" placeholder="Ingrese DNI" style="font-size: 12px;">
+                <input type="text" class="form-control" id="dni" placeholder="Ingrese DNI" style="font-size: 12px;"
+                  required>
               </div>
               <!-- Fecha de Nacimiento -->
               <div class="form-group col-md-2">
                 <label class="small" for="fecha_nac">Fecha de Nac.</label>
-                <input type="date" class="form-control" id="fecha_nac" style="font-size: 12px;">
+                <input type="date" class="form-control" id="fecha_nac" style="font-size: 12px;" required>
               </div>
               <!-- Edad -->
               <div class="form-group col-md-2">
                 <label class="small" for="edad">Edad</label>
-                <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" style="font-size: 12px;">
+                <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" style="font-size: 12px;"
+                  required min="0">
               </div>
               <!-- Género -->
               <div class="form-group col-md-3">
                 <label class="small" for="genero">Género</label>
-                <select id="genero" class="form-control" style="font-size: 12px;">
+                <select id="genero" class="form-control" style="font-size: 12px;" required>
                   <option value="" disabled selected>Seleccione género</option>
-                  <option value="masculino">Masculino</option>
-                  <option value="femenino">Femenino</option>
-                  <option value="otro">Otro</option>
+                  <option value="M">Masculino</option>
+                  <option value="F">Femenino</option>
+                  <option value="O">Otro</option>
                 </select>
               </div>
               <!-- Teléfono -->
               <div class="form-group col-md-3">
                 <label class="small" for="telefono">Teléfono</label>
                 <input type="text" class="form-control" id="telefono" placeholder="Ingrese teléfono"
-                  style="font-size: 12px;">
+                  style="font-size: 12px;" required>
               </div>
             </div>
 
@@ -180,7 +182,7 @@
               <div class="form-group col-md-6">
                 <label class="small" for="domicilio">Domicilio</label>
                 <input type="text" class="form-control" id="domicilio" placeholder="Ingrese domicilio"
-                  style="font-size: 12px;">
+                  style="font-size: 12px;" required>
               </div>
               <!-- Email -->
               <div class="form-group col-md-6">
@@ -192,22 +194,22 @@
 
             <div class="row py-1">
               <!-- Repartición -->
-              <div class="form-group col-md-6">
+              <!-- <div class="form-group col-md-6">
                 <label class="small" for="reparticion">Repartición</label>
-                <select id="reparticion" class="form-control" style="font-size: 12px;">
-                  <!--<option value="" disabled selected>Seleccione una repartición</option>
+                <select id="reparticion" class="form-control" style="font-size: 12px;"> -->
+              <!--<option value="" disabled selected>Seleccione una repartición</option>
                       <option value="administracion">Administración</option>
                       <option value="ventas">Ventas</option>
                       <option value="recursos_humanos">Recursos Humanos</option>
                       <option value="finanzas">Finanzas</option> -->
-                  <option value="" disabled selected>Cargando reparticiones...</option>
+              <!-- <option value="" disabled selected>Cargando reparticiones...</option>
                 </select>
-              </div>
+              </div> -->
               <!-- Antigüedad -->
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-3">
                 <label class="small" for="antiguedad">Antigüedad (Años)</label>
                 <input type="number" class="form-control" id="antiguedad" placeholder="Ingrese años de antigüedad"
-                  style="font-size: 12px;">
+                  style="font-size: 12px;" required min="1">
               </div>
             </div>
             <div class="row">
@@ -230,6 +232,8 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/altaPersonal.js"></script>
+  <script src="js/obtenerReparticiones.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
@@ -237,6 +241,24 @@
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
 
+  <!-- Modal para confirmar el envío de datos -->
+  <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmModalLabel">Confirmar Datos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="modalContent"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="confirmSubmit">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
